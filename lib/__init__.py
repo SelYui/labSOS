@@ -1,0 +1,1 @@
+__all__ = ["id_lab1","id_lab2","module","work_docx"]
