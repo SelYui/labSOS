@@ -4,7 +4,7 @@
 '''
 import time
 
-from PyQt5.QtCore import QThread, pyqtSignal, pyqtSlot
+from PyQt5.QtCore import QThread, pyqtSignal
 from lib import id_lab1, id_lab2, work_docx
 
 #потоковая задача с созданием ИД
@@ -43,7 +43,7 @@ class ThreadCreateID(QThread):
                 #сохраняем docx файл
                 work_docx.save_docx(doc, F_Name_lab1)
             except Exception as e:
-                self.messageSignal.emit('Не удалось создать файл!\nЗакройте файл %s и повторите попвтку.\n\nException = %s'% (F_Name_lab1, e))
+                self.messageSignal.emit('Не удалось создать файл!\n\nException = %s'% e)
                 
         #создаем файл с ИД для второй лабы
         elif ((Num_lab == 2) and (F_Name_lab2 != 'none')):
@@ -61,7 +61,7 @@ class ThreadCreateID(QThread):
                 #сохраняем docx файл
                 work_docx.save_docx(doc, F_Name_lab2)
             except Exception as e:
-                self.messageSignal.emit('Не удалось создать файл!\nЗакройте файл %s и повторите попвтку.\n\nException = %s'% (F_Name_lab2, e))
+                self.messageSignal.emit('Не удалось создать файл!\n\nException = %s'% e)
         self.progressValue.emit(50*Num_lab)
         time.sleep(1)                               #что бы не сразу пропадала шкала
         self.finished_create.emit()

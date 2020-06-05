@@ -2,12 +2,12 @@
 '''
 Главное окно программы
 '''
-import os, sys, time, datetime
+import os, sys, datetime
 
-from PyQt5.QtWidgets import (QMainWindow, QWidget, QDesktopWidget, QPushButton, QLineEdit, QMessageBox, QStatusBar,
+from PyQt5.QtWidgets import (QMainWindow, QWidget, QDesktopWidget, QPushButton, QLineEdit, QMessageBox,
     QFileDialog, QApplication, QCheckBox, QTextEdit, QHBoxLayout, QVBoxLayout, QGridLayout, QProgressBar)
-from PyQt5.QtGui import QIcon, QFont
-from PyQt5.QtCore import pyqtSlot, pyqtSignal, Qt
+from PyQt5.QtGui import QIcon
+from PyQt5.QtCore import pyqtSignal, Qt
 
 from lib import module, work_docx
 from lab_UI import sec_stream
@@ -25,7 +25,7 @@ class MainWindow(QMainWindow):
         self.MainWidget = QWidget()                                     # создаем виджет с нашим наполнением
         self.setCentralWidget(self.MainWidget)                          # помещаем виджет в центр
         self.setWindowTitle("Системное БПО")                            # Устанавливаем заголовок окна
-        self.setWindowIcon(QIcon('mars.jpg'))                           # Устанавливаем иконку
+        self.setWindowIcon(QIcon('lib\RosAtom_logo_rus.ico'))                           # Устанавливаем иконку
         self.center()                                                   # помещаем окно в центр экрана
         
     #константы для нашего окна
