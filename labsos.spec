@@ -83,7 +83,7 @@ add_bins = [
 			]
 
 a = Analysis(['labsos.py'],
-             pathex=['C:\\py_virtual\\build_env\\progect\\labSOS'],
+             pathex=['C:\\py_virtual\\build_env\\project\\labSOS'],
              binaries=add_bins,
              datas=added_files,
              hiddenimports=[],
@@ -109,4 +109,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False, icon='C:\\py_virtual\\build_env\\progect\\labSOS\\lib\\RosAtom_logo_rus.ico' )
+          console=False, icon='C:\\py_virtual\\build_env\\project\\labSOS\\lib\\RosAtom_logo_rus.ico' )

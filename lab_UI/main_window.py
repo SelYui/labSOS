@@ -77,6 +77,7 @@ class MainWindow(QMainWindow):
         self.btn_create.setAutoDefault(True)                              # click on <Enter>
         self.pb_create = QProgressBar()                                 #шкала прогресса создания ИД
         self.pb_create.setValue(0)
+        self.pb_create.hide()    #скрываем шкалу прогресса
     
     #создаем подсказки
         self.tool_tip()
@@ -266,6 +267,7 @@ class MainWindow(QMainWindow):
 
             self.setDisabled(True)
             self.pb_create.setValue(0)                                              #начальное состояние прогресса
+            self.pb_create.show()                                                   #показываем шкалу прогресса
             #создаем потоки внутри формы
             self.thread_create = sec_stream.ThreadCreateID(self.ThreadValue)           #создаем поток создания ИД
             self.thread_create.messageSignal.connect(self.Th_Message)               #обработка сигнала ошибки
@@ -307,7 +309,8 @@ class MainWindow(QMainWindow):
             #запускаем потоки на запись ИД для второй лабы
             self.thread_create.start()
         else:                                   #обе лабы составлены
-            self.pb_create.setValue(0)       #обнуление шкалы, что бы не раздражала
+            self.pb_create.setValue(0)          #обнуление шкалы, что бы не раздражала
+            self.pb_create.hide()               #скрываем шкалу прогресса
             self.setEnabled(True)               #разблокируем окно
   
 #класс для поля со списком студентов, перехыватывающий клик левой кнопки мыши
