@@ -25,7 +25,8 @@ class MainWindow(QMainWindow):
         self.MainWidget = QWidget()                                     # создаем виджет с нашим наполнением
         self.setCentralWidget(self.MainWidget)                          # помещаем виджет в центр
         self.setWindowTitle("Системное БПО")                            # Устанавливаем заголовок окна
-        self.setWindowIcon(QIcon('lib\RosAtom_logo_rus.ico'))                           # Устанавливаем иконку
+        #self.setWindowIcon(QIcon('lib\RosAtom_logo_rus.ico'))                           # Устанавливаем иконку
+        self.setWindowIcon(QIcon('lib\library.ico'))                           # Устанавливаем иконку
         self.center()                                                   # помещаем окно в центр экрана
         
     #константы для нашего окна
