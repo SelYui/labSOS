@@ -24,11 +24,11 @@ class ThreadCreateID(QThread):
         list_student = self.ThreadValue[0]
         F_Name_lab1 = self.ThreadValue[1]
         F_Name_lab2 = self.ThreadValue[2]
-        Num_lab = self.ThreadValue[3]
+        #Num_lab = 1                             #сначала пытаемся создать ИД для первой лабы
         #значение на которое увеличиваем прогрессбар
         count = 50/(len(list_student))
         #создаем файл с ИД для первой лабы
-        if ((Num_lab == 1) and (F_Name_lab1 != 'none')):
+        if (F_Name_lab1 != 'none'):
             #создаем файл с таблицей и ИД
             doc = work_docx.create_docx(1, 2, 2, 2, 2)
             #в цикле для каждого студента формируем массивы
@@ -44,9 +44,10 @@ class ThreadCreateID(QThread):
                 work_docx.save_docx(doc, F_Name_lab1)
             except Exception as e:
                 self.messageSignal.emit('Не удалось создать файл!\n\nException = %s'% e)
-                
+        
+        #Num_lab = 2                             #теперь пытаемся создать ИД для второй лабы        
         #создаем файл с ИД для второй лабы
-        elif ((Num_lab == 2) and (F_Name_lab2 != 'none')):
+        if (F_Name_lab2 != 'none'):
             #создаем файл с таблицей и ИД
             doc = work_docx.create_docx(2, 2, 2, 2, 2)
             #для каждого студента 
@@ -62,6 +63,6 @@ class ThreadCreateID(QThread):
                 work_docx.save_docx(doc, F_Name_lab2)
             except Exception as e:
                 self.messageSignal.emit('Не удалось создать файл!\n\nException = %s'% e)
-        self.progressValue.emit(50*Num_lab)
+        self.progressValue.emit(100)
         time.sleep(1)                               #что бы не сразу пропадала шкала
         self.finished_create.emit()

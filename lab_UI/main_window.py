@@ -263,7 +263,7 @@ class MainWindow(QMainWindow):
             
             self.ThreadValue.append(list_student)                 #готовим список группы в Thread
             self.ThreadValue = self.Th_Value(self.ThreadValue)  #готовим путь к файлам для потока ИД
-            self.ThreadValue.append(1)                            #номер лабораторной для которой вначале будет создаваться ИД
+            #self.ThreadValue.append(1)                            #номер лабораторной для которой вначале будет создаваться ИД
             #self.ThreadValue_2.append(1)                            #номер лабораторной для которой вначале будет создаваться ИД
 
             self.setDisabled(True)
@@ -305,6 +305,7 @@ class MainWindow(QMainWindow):
                 
     #оброботка сигнала конца потока 
     def end_create(self):
+        '''
         if self.ThreadValue[3] == 1:          #первая лаба составлена, составляем вторую
             self.ThreadValue[3] = 2           #готовимся к записи второй лабораторной
             #запускаем потоки на запись ИД для второй лабы
@@ -313,6 +314,10 @@ class MainWindow(QMainWindow):
             self.pb_create.setValue(0)          #обнуление шкалы, что бы не раздражала
             self.pb_create.hide()               #скрываем шкалу прогресса
             self.setEnabled(True)               #разблокируем окно
+        '''
+        self.pb_create.setValue(0)          #обнуление шкалы, что бы не раздражала
+        self.pb_create.hide()               #скрываем шкалу прогресса
+        self.setEnabled(True)               #разблокируем окно
   
 #класс для поля со списком студентов, перехыватывающий клик левой кнопки мыши
 class TextEdit(QTextEdit):

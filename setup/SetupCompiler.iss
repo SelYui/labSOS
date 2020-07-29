@@ -29,7 +29,7 @@ AppSupportPhone={#Email}
 AppReadmeFile={#ReadmMe}
 
 ; Только для 64 разрядной архитектуры
-ArchitecturesAllowed=x64
+;ArchitecturesAllowed=x64
 
 ; Путь установки по-умолчанию
 DefaultDirName=C:\{#Publisher}\{#Name}

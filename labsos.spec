@@ -36,4 +36,4 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False, icon='D:\\icon\\library.ico' )
+          console=False, icon='lib\\library.ico' )

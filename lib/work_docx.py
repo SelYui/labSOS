@@ -3,7 +3,7 @@
 Модули для работы с различными редакторами текстов
 '''
 
-import os, docx, pandas
+import os, docx, pandas, xlrd
 from docx.shared import Pt, Cm
 from odf import teletype, text
 from odf.opendocument import load
@@ -265,7 +265,7 @@ def read_student_list(NameStudent):
             
     elif (file_extension == '.xls') or (file_extension == '.xlsx'):
         #читаем excel файлы
-        temp = pandas.read_excel(NameStudent, header=None)
+        temp = pandas.read_excel(NameStudent, engine='xlrd', header=None)
         #сначала пытаемся считать первый столбец, если не вышло, то нулевой
         try:
             student_list = temp[1].tolist()
